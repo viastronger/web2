@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'HarmonyOS_Sans_SC_Light';
+  src: url('@/assets/font/HarmonyOS_Sans_SC_Light.ttf');
+}
+
+@font-face {
+  font-family: 'HarmonyOS_Sans_SC_Medium';
+  src: url('@/assets/font/HarmonyOS_Sans_SC_Medium.ttf');
+}
+
+@import './normalize.scss';
+
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #bcbcbc;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #f3f2f2;
+}
+
+.main-container{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.img-placeholder{
+  min-height: 260px;
+}
+
+.el-button{
+  outline: none !important;
+}
