@@ -12,12 +12,20 @@
       @click="carouselItemClick(index)"
     >
       <TheImage
+        v-if="!rows.length"
         ref="elImageRef"
         class="carousel-img"
         :src="item.url"
         :previewlist="previewlist"
         @load="imgLoadHandler"
       ></TheImage>
+      <div v-else class="row-box" ref="rowBox">
+        <div class="row" v-for="(row, idx) in rows" :key="idx">
+          <div class="col" v-for="(col, i) in row" :key="i">
+            <TheImage :src="col" @load="imgLoadHandler"></TheImage>
+          </div>
+        </div>
+      </div>
     </el-carousel-item>
   </el-carousel>
 </template>
@@ -57,12 +65,19 @@ const props = defineProps({
       return [];
     },
   },
+  rows: {
+    type: Array,
+    default: () => {
+      return [];
+    },
+  },
 });
 
 const emits = defineEmits(["carouselItemClick"]);
 
 const carouselHeight = ref(props.height || "600px");
 const elImageRef = ref();
+const rowBox = ref();
 
 const imgLoadHandler = (e) => {
   !props.fixedHeight && resizeSetHeight();
@@ -77,7 +92,11 @@ onUnmounted(() => {
 });
 
 const resizeSetHeight = debounce(() => {
-  carouselHeight.value = `${elImageRef.value[0].getEl().clientHeight}px`;
+  if (elImageRef.value) {
+    carouselHeight.value = `${elImageRef.value[0].getEl().clientHeight}px`;
+  } else {
+    carouselHeight.value = `${rowBox.value[0].clientHeight}px`;
+  }
 }, 300);
 
 const carouselItemClick = (idx) => {
@@ -101,5 +120,23 @@ const carouselItemClick = (idx) => {
 
 :deep(.el-carousel__container) {
   transition: height 0.3s;
+}
+
+.carousel-card {
+  .row-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .row {
+      display: flex;
+      justify-content: space-between;
+      & + .row {
+        margin-top: 10px;
+      }
+      .col {
+        width: 32.5%;
+      }
+    }
+  }
 }
 </style>

@@ -3,7 +3,7 @@
     <img src="@/assets/images/about/02.jpg" alt="" />
     <img src="@/assets/images/about/03.jpg" alt="" />
     <div class="carousel-wrap">
-      <img v-scrollBot src="@/assets/images/about/04_.jpg" alt="" />
+      <img v-scrollBot src="@/assets/images/about/04.png" alt="" />
       <div class="carousel-box">
         <TheBanner
           :bannerList="bannerList"
@@ -21,7 +21,7 @@
       ></TheImage>
     </div>
     <img v-scrollBot src="@/assets/images/about/05.jpg" alt="" />
-    <img v-scrollBot src="@/assets/images/about/06.jpg" alt="" />
+    <img v-scrollBot src="@/assets/images/about/06.png" alt="" />
   </div>
 </template>
 <script setup>

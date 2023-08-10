@@ -1,20 +1,24 @@
 <template>
   <div class="footer">
     <div class="ewm-box">
-      <img src="@/assets/images/home/weixin_ewm.png" alt="" />
-      <img src="@/assets/images/home/service_ewm.png" alt="" />
+      <img src="@/assets/images/footer/weixin_ewm.jpg" alt="" />
+      <img src="@/assets/images/footer/service_ewm.png" alt="" />
     </div>
-    <img src="@/assets/images/home/06.png" alt="" />
+    <img src="@/assets/images/footer/footer_bg.png" alt="" />
     <TheMap class="map"></TheMap>
   </div>
   <div class="bot-link">
     <div class="left">
       <img src="@/assets/images/logo/logo_light.png" alt="" />
       <div class="copyright">Copyright © 2022-2029 All Rights Reserved.</div>
-      <div>
+      <div class="record">
+        <img
+          class="security"
+          src="@/assets/images/footer/publicSecurityLogo.png"
+          alt=""
+        />
         <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2022023635号 </a>
-      </div>
-      <div style="margin-top: 8px">
+        <span> | </span>
         <a href="http://cyberpolice.mps.gov.cn/" target="_blank">
           浙公网安备 33011002016623号
         </a>
@@ -25,14 +29,18 @@
       <ul>
         <li>
           <div class="title">相关网站</div>
-          <div class="link">上海香格里职业培训学校</div>
+          <div class="link">香格里培训</div>
           <div class="link">珅昕陪护</div>
+          <div class="link">颐挚科技</div>
         </li>
         <li>
           <div class="title">小程序</div>
           <div class="icon-row">
             <el-popover placement="top-start" width="200" trigger="hover">
-              <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+              <div class="popover-box">
+                <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                关注挚护易小程序
+              </div>
               <template #reference>
                 <div class="icon-row">
                   <img class="icon" src="@/assets/images/footer/01.png" alt="" />
@@ -43,11 +51,14 @@
           </div>
           <div class="icon-row">
             <el-popover placement="top-start" width="200" trigger="hover">
-              <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+              <div class="popover-box">
+                <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                关注挚护帮小程序
+              </div>
               <template #reference>
                 <div class="icon-row">
                   <img class="icon" src="@/assets/images/footer/01.png" alt="" />
-                  颐挚母婴
+                  挚护帮
                 </div>
               </template>
             </el-popover>
@@ -58,7 +69,10 @@
           <div class="icon-box">
             <div class="item">
               <el-popover placement="top-start" width="200" trigger="hover">
-                <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                <div class="popover-box">
+                  <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                  关注官方微信
+                </div>
                 <template #reference>
                   <img class="icon" src="@/assets/images/footer/02.png" alt="" />
                 </template>
@@ -66,7 +80,10 @@
             </div>
             <div class="item">
               <el-popover placement="top-start" width="200" trigger="hover">
-                <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                <div class="popover-box">
+                  <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                  关注官方大众点评
+                </div>
                 <template #reference>
                   <img class="icon" src="@/assets/images/footer/03.png" alt="" />
                 </template>
@@ -74,7 +91,32 @@
             </div>
             <div class="item">
               <el-popover placement="top-start" width="200" trigger="hover">
-                <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                <div class="popover-box">
+                  <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                  关注官方小红书
+                </div>
+                <template #reference>
+                  <img class="icon" src="@/assets/images/footer/07.png" alt="" />
+                </template>
+              </el-popover>
+            </div>
+            <div class="item">
+              <el-popover placement="top-start" width="200" trigger="hover">
+                <div class="popover-box">
+                  <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                  关注官方微博
+                </div>
+                <template #reference>
+                  <img class="icon" src="@/assets/images/footer/06.png" alt="" />
+                </template>
+              </el-popover>
+            </div>
+            <div class="item">
+              <el-popover placement="top-start" width="200" trigger="hover">
+                <div class="popover-box">
+                  <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                  关注官方抖音
+                </div>
                 <template #reference>
                   <img class="icon" src="@/assets/images/footer/04.png" alt="" />
                 </template>
@@ -82,17 +124,12 @@
             </div>
             <div class="item">
               <el-popover placement="top-start" width="200" trigger="hover">
-                <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                <div class="popover-box">
+                  <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                  关注官方快手
+                </div>
                 <template #reference>
-                  <img class="icon" src="@/assets/images/footer/05.png" alt="" />
-                </template>
-              </el-popover>
-            </div>
-            <div class="item">
-              <el-popover placement="top-start" width="200" trigger="hover">
-                <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
-                <template #reference>
-                  <img class="icon" src="@/assets/images/footer/06.png" alt="" />
+                  <img class="icon" src="@/assets/images/footer/08.png" alt="" />
                 </template>
               </el-popover>
             </div>
@@ -180,7 +217,7 @@ const resizeSetHeight = debounce(() => {
 }
 
 .bot-link {
-  padding: 70px 176px 70px 115px;
+  padding: 70px 0;
   background-color: #1f2329;
   display: flex;
   justify-content: center;
@@ -190,15 +227,27 @@ const resizeSetHeight = debounce(() => {
   .left {
     text-align: left;
     color: #85878a;
-    margin-right: 20px;
+    width: 390px;
     a {
       color: #85878a;
     }
     img {
-      width: 100px;
+      width: 132px;
     }
     .copyright {
-      margin: 20px 0 15px;
+      margin: 10px 0 8px;
+    }
+    .record {
+      display: flex;
+      align-items: center;
+      span {
+        margin: 0 2px;
+      }
+    }
+    .security {
+      margin-right: 2px;
+      width: 18px;
+      height: 18px;
     }
   }
 
@@ -207,48 +256,64 @@ const resizeSetHeight = debounce(() => {
     ul {
       display: flex;
       .title {
-        color: #85878a;
-        margin-bottom: 25px;
+        color: #797c7f;
+        margin-bottom: 15px;
       }
       li {
         margin-top: 15px;
-        border-left: 2px solid #535352;
+        // border-left: 1px solid rgba(255, 255, 255, 0.4);
         text-align: center;
-        width: 275px;
+        width: 240px;
+        font-size: 15px;
+        position: relative;
+        &:last-child {
+          width: fit-content;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 3px;
+          width: 1px;
+          background-color: rgba(255, 255, 255, 0.4);
+          height: calc(100% - 8px);
+        }
+
         .link {
           color: #d3d4d5;
           & + .link {
-            margin-top: 16px;
+            margin-top: 8px;
           }
         }
 
         .icon-row {
-          width: 130px;
-          margin: 0 auto;
+          width: 100%;
           display: flex;
           align-items: center;
+          justify-content: center;
           color: #d3d4d5;
           cursor: pointer;
           & + .icon-row {
-            margin-top: 4px;
+            margin-top: 6px;
           }
           .icon {
-            width: 31px;
-            height: 31px;
+            width: 26px;
+            height: 26px;
             margin-right: 10px;
           }
         }
         .icon-box {
           padding-left: 60px;
           display: flex;
-          margin-top: 45px;
+          margin-top: 30px;
           .item {
             & + .item {
               margin-left: 15px;
             }
             .icon {
-              width: 44px;
-              height: 44px;
+              width: 31px;
+              height: 31px;
             }
           }
         }
@@ -263,11 +328,21 @@ const resizeSetHeight = debounce(() => {
 .bot-title {
   padding: 20px 0;
   font-size: 30px;
-  // backdrop-filter: saturate(180%) blur(10px);
-  // background-image: linear-gradient(rgba(255, 255, 255, 0.62), rgba(238, 238, 238, 1));
   background-color: rgba(217, 217, 217, 0.6);
   font-family: HarmonyOS_Sans_SC_Medium;
   color: #fff;
   font-style: italic;
+}
+</style>
+<style lang="scss">
+.popover-box {
+  text-align: center;
+  color: #1f2329;
+  font-size: 14px;
+  img {
+    margin: 0 auto 10px;
+    width: 120px;
+    height: 120px;
+  }
 }
 </style>
