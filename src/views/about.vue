@@ -1,66 +1,50 @@
 <template>
   <div class="img-placeholder">
-    <img src="@/assets/images/about/02.jpg" alt="" />
-    <img src="@/assets/images/about/03.jpg" alt="" />
-    <div class="carousel-wrap">
-      <img v-scrollBot src="@/assets/images/about/04.png" alt="" />
-      <div class="carousel-box">
-        <TheBanner
-          :bannerList="bannerList"
-          height="200px"
-          indicator="outside"
-          @carouselItemClick="carouselItemClick"
-        ></TheBanner>
+    <div class="banner-box banner-box1">
+      <img v-scrollBot src="@/assets/images/about/01.png" alt="" />
+      <div class="swiper-box swiper-box1" :class="{ active: showBanner }">
+        <TheSwiper
+          :bannerList="bannerList1"
+          :slidesPerView="1"
+          :pagination="{ clickable: true }"
+        ></TheSwiper>
       </div>
-      <TheImage
-        ref="previewDiv"
-        :src="banner1"
-        class="preview-div"
-        :previewlist="bannerList.map((l) => l.url)"
-        :initialIndex="initialIndex"
-      ></TheImage>
     </div>
-    <img v-scrollBot src="@/assets/images/about/05.jpg" alt="" />
-    <img v-scrollBot src="@/assets/images/about/06.png" alt="" />
+    <img v-scrollBot src="@/assets/images/about/02.png" alt="" />
+    <img src="@/assets/images/about/03.png" alt="" />
+    <TheImage
+      ref="previewDiv"
+      class="preview-div"
+      :previewlist="previewBanner"
+      :initialIndex="initialIndex"
+    ></TheImage>
   </div>
 </template>
 <script setup>
 import { ref, reactive, toRefs, watch, onMounted, onUnmounted } from "vue";
 import { debounce } from "lodash-es";
+import TheSwiper from "@/components/TheSwiper.vue";
 import TheImage from "@/components/TheImage.vue";
 import TheBanner from "@/components/TheBanner.vue";
-import banner1 from "@/assets/images/about/carousel/1.png";
-import banner2 from "@/assets/images/about/carousel/2.png";
-import banner3 from "@/assets/images/about/carousel/3.png";
-import banner4 from "@/assets/images/about/carousel/4.png";
-import banner5 from "@/assets/images/about/carousel/5.png";
-import banner6 from "@/assets/images/about/carousel/6.png";
-import banner7 from "@/assets/images/about/carousel/7.png";
-import banner8 from "@/assets/images/about/carousel/8.png";
-import banner9 from "@/assets/images/about/carousel/9.jpg";
+import bannerList1 from "@/assets/images/about/banner1";
 
-const bannerList = [
-  { url: banner1 },
-  { url: banner2 },
-  { url: banner3 },
-  { url: banner4 },
-  { url: banner5 },
-  { url: banner6 },
-  { url: banner7 },
-  { url: banner8 },
-  { url: banner9 },
-];
+const baseWidth = 1920;
+const imgBox1Height = 830;
 
-const carouselRightRadio = 365 / 1920;
-const carouselBotRadio = 185 / 690;
-const carouselWidthRadio = 467 / 1920;
-
-const carouselBoxRight = ref("365px");
-const carouselBoxBot = ref("185px");
-const carouselBoxWidth = ref("467px");
+const carouselBox1Right = ref("120px");
+const carouselBox1Bot = ref("65px");
+const carouselBox1Width = ref("672px");
+const carouselBox1Height = ref("514px");
+const carouselBox1RightRadio = 120 / baseWidth;
+const carouselBox1BotRadio = 65 / imgBox1Height;
+const carouselBox1WidthRadio = 672 / baseWidth;
+const carouselBox1HeightRadio = 514 / imgBox1Height;
 
 const previewDiv = ref(null);
 const initialIndex = ref(0);
+const previewBanner = ref([]);
+
+const showBanner = ref(false);
 onMounted(() => {
   setTimeout(resizeSetHeight, 300);
   window.addEventListener("resize", resizeSetHeight);
@@ -71,11 +55,16 @@ onUnmounted(() => {
 });
 
 const resizeSetHeight = debounce(() => {
-  const { clientWidth, clientHeight } = document.querySelector(".carousel-wrap");
+  const { clientWidth: box1Width, clientHeight: box1Height } = document.querySelector(
+    ".banner-box1"
+  );
 
-  carouselBoxRight.value = clientWidth * carouselRightRadio + "px";
-  carouselBoxBot.value = clientHeight * carouselBotRadio + "px";
-  carouselBoxWidth.value = clientWidth * carouselWidthRadio + "px";
+  carouselBox1Right.value = box1Width * carouselBox1RightRadio + "px";
+  carouselBox1Bot.value = box1Height * carouselBox1BotRadio + "px";
+  carouselBox1Width.value = box1Width * carouselBox1WidthRadio + "px";
+  carouselBox1Height.value = box1Height * carouselBox1HeightRadio + "px";
+
+  showBanner.value = true;
 }, 300);
 
 const carouselItemClick = (idx) => {
@@ -84,30 +73,26 @@ const carouselItemClick = (idx) => {
 };
 </script>
 <style lang="scss" scoped>
-.carousel-wrap {
+.banner-box {
   position: relative;
-  .carousel-box {
+  .swiper-box {
     position: absolute;
-    right: v-bind(carouselBoxRight);
-    bottom: v-bind(carouselBoxBot);
-    width: v-bind(carouselBoxWidth);
-    height: 200px;
-
-    :deep(.carousel-img) {
-      width: 100%;
-      height: 100%;
-      .el-image__inner {
-        max-width: 100%;
-        // height: auto;
-        max-height: 100%;
-      }
+    opacity: 0;
+    transition: opacity 0.5;
+    &.active {
+      opacity: 1;
     }
   }
-
-  .preview-div {
-    position: fixed;
-    left: -99999px;
-    z-index: 999;
+  .swiper-box1 {
+    right: v-bind(carouselBox1Right);
+    bottom: v-bind(carouselBox1Bot);
+    width: v-bind(carouselBox1Width);
+    height: v-bind(carouselBox1Height);
   }
+}
+.preview-div {
+  position: fixed;
+  left: -99999px;
+  z-index: 999;
 }
 </style>

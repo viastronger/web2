@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
     <div class="logo" @click="router.push('home')">
-      <img src="@/assets/images/logo/logo_dark.png" alt="" />
+      <img src="@/assets/images/logo/logo_light.png" alt="" />
     </div>
 
     <div class="right">
@@ -80,7 +80,7 @@ const changeType = (type) => {
   justify-content: space-between;
   padding: 18px 0 19px;
   .logo {
-    width: 120px;
+    width: 28%;
     cursor: pointer;
   }
   .right {

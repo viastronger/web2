@@ -13,6 +13,7 @@ specifiers:
   lodash-es: ^4.17.21
   sass: ^1.63.6
   sass-loader: ^13.3.2
+  swiper: ^10.1.0
   vue: ^3.2.13
   vue-router: ^4.0.3
   vuex: ^4.0.0
@@ -24,6 +25,7 @@ dependencies:
   echarts: registry.npmmirror.com/echarts/4.1.0
   element-plus: registry.npmmirror.com/element-plus/2.3.8_vue@3.3.4
   lodash-es: registry.npmmirror.com/lodash-es/4.17.21
+  swiper: registry.npmmirror.com/swiper/10.1.0
   vue: registry.npmmirror.com/vue/3.3.4
   vue-router: registry.npmmirror.com/vue-router/4.2.4_vue@3.3.4
   vuex: registry.npmmirror.com/vuex/4.1.0_vue@3.3.4
@@ -7664,6 +7666,13 @@ packages:
       picocolors: registry.npmmirror.com/picocolors/1.0.0
       stable: registry.npmmirror.com/stable/0.1.8
     dev: true
+
+  registry.npmmirror.com/swiper/10.1.0:
+    resolution: {integrity: sha512-E+wh+hcSbwlRfXuwBTclcOOikOjNdSF0a2Sdg3J4cIWtHO64A7SaLRfezfrJ67CW3GEc15AduYU2YKlElsjqsQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/swiper/-/swiper-10.1.0.tgz}
+    name: swiper
+    version: 10.1.0
+    engines: {node: '>= 4.7.0'}
+    dev: false
 
   registry.npmmirror.com/tapable/2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tapable/-/tapable-2.2.1.tgz}

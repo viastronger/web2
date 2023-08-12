@@ -17,44 +17,19 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/about.vue'),
       },
       {
-        path: '/birth',
-        name: 'birth',
-        component: () => import(/* webpackChunkName: "about" */ '../views/birth.vue'),
+        path: '/train',
+        name: 'train',
+        component: () => import(/* webpackChunkName: "about" */ '../views/train.vue'),
       },
       {
-        path: '/care',
-        name: 'care',
-        component: () => import(/* webpackChunkName: "about" */ '../views/care.vue'),
+        path: '/query',
+        name: 'query',
+        component: () => import(/* webpackChunkName: "about" */ '../views/query.vue'),
       },
       {
-        path: '/chaperonage',
-        name: 'chaperonage',
-        component: () => import(/* webpackChunkName: "about" */ '../views/chaperonage.vue'),
-      },
-      {
-        path: '/pregnancy',
-        name: 'pregnancy',
-        component: () => import(/* webpackChunkName: "about" */ '../views/pregnancy.vue'),
-      },
-      {
-        path: '/child',
-        name: 'child',
-        component: () => import(/* webpackChunkName: "about" */ '../views/child.vue'),
-      },
-      {
-        path: '/bring-up',
-        name: 'bring-up',
-        component: () => import(/* webpackChunkName: "about" */ '../views/bring-up.vue'),
-      },
-      {
-        path: '/experience',
-        name: 'experience',
-        component: () => import(/* webpackChunkName: "about" */ '../views/experience.vue'),
-      },
-      {
-        path: '/apply',
-        name: 'apply',
-        component: () => import(/* webpackChunkName: "about" */ '../views/apply.vue'),
+        path: '/student',
+        name: 'student',
+        component: () => import(/* webpackChunkName: "about" */ '../views/student.vue'),
       },
       {
         path: '/search',

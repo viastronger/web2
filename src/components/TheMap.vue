@@ -68,7 +68,7 @@ function initMap(params) {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 10001;
+    z-index: 10;
     background-color: #757e82;
     font-size: 22px;
     color: #ffffff;

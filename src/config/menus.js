@@ -1,59 +1,70 @@
 export default [
   {
-    name: '选月嫂',
+    name: '特色课程',
     route: 'home',
     icon: '',
-    // submenus: [
-    //   // {
-    //   //   name: '找月嫂',
-    //   //   icon: '',
-    //   //   carerType: 1
-    //   // },
-    //   // {
-    //   //   name: '找院内陪护',
-    //   //   icon: '',
-    //   //   carerType: 2
-    //   // }
-    // ]
+    submenus: [
+      {
+        name: '母婴护理员',
+        icon: '',
+        carerType: 1
+      },
+      {
+        name: '医疗护理员',
+        icon: '',
+        carerType: 2
+      },
+      {
+        name: '养老护理员',
+        icon: '',
+        carerType: 3
+      },
+      {
+        name: '家务服务员',
+        icon: '',
+        carerType: 4
+      },
+      {
+        name: '中式烹调师',
+        icon: '',
+        carerType: 5
+      },
+      {
+        name: '中式面点师',
+        icon: '',
+        carerType: 6
+      },
+      {
+        name: '插花花艺师',
+        icon: '',
+        carerType: 7
+      },
+      {
+        name: '茶艺师',
+        icon: '',
+        carerType: 8
+      }
+    ]
   },
   {
-    name: '住家月嫂',
-    route: 'care',
+    name: '培训课程',
+    route: 'train',
     icon: '',
   },
   {
-    name: '母婴陪护',
-    route: 'chaperonage',
+    name: '查询认证',
+    route: 'query',
     icon: '',
   },
   {
-    name: '孕产陪诊',
-    route: 'pregnancy',
+    name: '学员案例',
+    route: 'student',
     icon: '',
   },
   {
-    name: '儿童陪诊',
-    route: 'child',
-    icon: '',
-  },
-  {
-    name: '育婴育儿',
-    route: 'bring-up',
-    icon: '',
-  },
-  {
-    name: '产后服务',
-    route: 'birth',
-    icon: '',
-  },
-  {
-    name: '场景体验馆',
-    route: 'experience',
-    icon: '',
-  },
-  {
-    name: '智能应用',
-    route: 'apply',
+    name: '格里课堂',
+    type: 'out_link',
+    route: 'http://www.xgl1985.com/#',
     icon: '',
   },
   {

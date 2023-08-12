@@ -1,12 +1,10 @@
 <template>
-  <div class="main-container">
+  <div class="main-container nav">
     <el-menu
       ref="menu"
       :default-active="activeIndex"
       class="el-menu-nav"
       mode="horizontal"
-      @close="menuCloseHandler"
-      @open="menuOpenHandler"
     >
       <div v-for="item in menus" :key="item.route">
         <el-menu-item
@@ -15,15 +13,7 @@
           @click="handlerClick(item)"
           :class="item.route === 'home' ? 'hand' : ''"
         >
-          <template v-if="item.route === 'home'">
-            <div class="hand-active" :class="route.name === 'home' ? 'no-pad' : ''">
-              <div v-if="route.name === 'home'" @click.stop="goSearch"> {{ item.name }} </div>
-              <img v-else src="@/assets/images/home/home.png" alt="" />
-            </div>
-          </template>
-          <template v-else>
-            {{ item.name }}
-          </template>
+          {{ item.name }}
         </el-menu-item>
 
         <el-sub-menu
@@ -39,69 +29,22 @@
               <img v-else src="@/assets/images/home/home.png" alt="" />
             </div>
           </template>
-          <div :key="reloadKey" v-if="false">
-            <el-sub-menu
-              v-for="child in item.submenus"
-              :key="child.name"
-              :index="child.name"
-            >
-              <template #title>
-                <div style="width: 100%" @click="goSearch(child)">
-                  {{ child.name }}
-                </div>
-              </template>
-              <div style="padding: 9px 20px">
-                <el-carousel
-                  class="carousel"
-                  v-if="child.carerType && carerMapInfo[child.carerType].list"
-                  :height="getCarouselHeight(carerMapInfo[child.carerType].list.length)"
-                  :autoplay="false"
-                  indicator-position="none"
-                  :loop="false"
-                  arrow="always"
-                  @change="carouselChange"
-                >
-                  <el-carousel-item
-                    class="carousel-card"
-                    v-for="(item, index) in getCarouselItemIndex(
-                      carerMapInfo[child.carerType].list.length
-                    )"
-                    :key="'carousel-card' + item"
-                    :style="{
-                      'z-index': `${
-                        getCarouselItemIndex(carerMapInfo[child.carerType].list.length) -
-                        index
-                      }`,
-                    }"
-                  >
-                    <div
-                      class="card"
-                      v-for="(card, idx) in getCardIndex(
-                        carerMapInfo[child.carerType].list,
-                        index
-                      )"
-                      :key="'card' + item + idx"
-                      @click="goDetail(card)"
-                    >
-                      <TheImage :src="card.picUrl"></TheImage>
-                      <div class="name">{{ hideName(card.name) }}</div>
-                      <div class="desc">
-                        {{ card.age }}岁 | {{ card.nativePlace }} | {{ getEdu(card) }}
-                      </div>
-                    </div>
-                  </el-carousel-item>
-                </el-carousel>
-              </div>
-            </el-sub-menu>
-          </div>
+          <el-menu-item
+            v-for="child in item.submenus"
+            :index="`${child.carerType}`"
+            :key="child.carerType"
+          >
+            {{ child.name }}
+          </el-menu-item>
         </el-sub-menu>
       </div>
     </el-menu>
+    <div class="sign-up" v-scrollBot>立即报名</div>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive, watch, inject } from "vue";
+import { ref, reactive, watch, inject, nextTick } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import api from "@/api";
 import TheImage from "@/components/TheImage.vue";
@@ -137,16 +80,15 @@ const carerMapInfo = reactive({
   },
 });
 
-watch(route, (v) => {
-  activeIndex.value = v.name;
-});
-
 const handlerClick = (item) => {
+  if (item.type === "out_link") {
+    activeIndex.value = "";
+    nextTick(() => {
+      activeIndex.value = route.name;
+    });
+    return window.open(item.route, "_blank");
+  }
   router.push(item.route);
-};
-
-const menuCloseHandler = () => {
-  reloadKey.value = String(+new Date());
 };
 
 const menuOpenHandler = (index) => {
@@ -163,10 +105,6 @@ const getTypeBabyCarerPageList = async () => {
     carerMapInfo[curCarerType.value].query
   );
   carerMapInfo[curCarerType.value].list = data.data;
-};
-
-const carouselChange = (index) => {
-  // todo
 };
 
 const findTargetMenu = (arr, index) => {
@@ -224,6 +162,27 @@ const getCarouselHeight = (length) => {
 $cardWidth: 125px;
 $cardHeight: 202px;
 
+.main-container.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .el-menu-nav {
+    flex: 1;
+  }
+
+  .sign-up {
+    margin-left: 40px;
+    // width: 144px;
+    // height: 38px;
+    padding: 4px 12px;
+    font-size: 22px;
+    font-family: Alibaba PuHuiTi-Regular, Alibaba PuHuiTi;
+    color: #fff;
+    background-color: #1f92d1;
+    border-radius: 4px;
+  }
+}
+
 .menu-pop,
 .menu-pop .el-popper.is-light,
 .menu-pop .el-menu--horizontal {
@@ -259,7 +218,16 @@ $cardHeight: 202px;
       }
     }
   }
-
+  .el-menu-item {
+    font-size: 16px;
+    background-color: #47c4f4 !important;
+    color: #fff !important;
+    border-bottom: 1px solid #fff;
+    &:hover {
+      background-color: #fff !important;
+      color: #47c4f4 !important;
+    }
+  }
   .el-sub-menu {
     font-size: 16px;
     .el-sub-menu__title {
@@ -301,7 +269,6 @@ $cardHeight: 202px;
     }
   }
   .hand-active {
-    padding: 10px 40px 10px 30px;
     background: url(@/assets/images/home/nav_bg.png) no-repeat center / 100% 100%;
     &.no-pad {
       padding: 0 30px;

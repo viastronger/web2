@@ -5,7 +5,8 @@ export default {
     el.style.cursor = 'pointer'
     el.addEventListener('click', (e) => {
       const footerEl = document.querySelector('.footer')
-      scrollSmoothTo(document.documentElement, footerEl.offsetTop - 134)
+      const navBar = document.querySelector('.nav-head')
+      scrollSmoothTo(document.documentElement, footerEl.offsetTop - navBar.clientHeight)
       e.stopPropagation();
     })
   },

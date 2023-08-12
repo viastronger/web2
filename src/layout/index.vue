@@ -9,7 +9,7 @@
         </div>
       </el-affix>
 
-      <router-view v-if="routerAlive"></router-view>
+      <router-view></router-view>
 
       <Footer></Footer>
     </el-config-provider>
