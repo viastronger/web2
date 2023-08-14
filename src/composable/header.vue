@@ -5,7 +5,7 @@
     </div>
 
     <div class="right">
-      <div class="search-box">
+      <!-- <div class="search-box">
         <el-dropdown popper-class="person-type">
           <el-button type="primary" color="#47c4f4" round>
             {{ searchNameType === 1 ? "月嫂姓名" : "月嫂等级" }}
@@ -26,9 +26,9 @@
         </el-dropdown>
         <input type="text" v-model="keyword" @keyup.enter="search" />
         <img @click="search" src="@/assets/images/home/search_icon.png" alt="" />
-      </div>
+      </div> -->
       <div class="phone">
-        <img src="@/assets/images/home/phone.png" alt="" />
+        <img src="@/assets/images/header/phone.png" alt="" />
         {{ contactNumber }}
       </div>
     </div>

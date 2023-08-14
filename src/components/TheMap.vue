@@ -3,7 +3,7 @@
     <div id="map"></div>
 
     <div class="mask-pos" @click="mapReset">
-      <img src="@/assets/images/home/07.png" alt="" /> 上海市普陀区华大科创楼1号楼
+      <img src="@/assets/images/home/07.png" alt="" /> 上海市青浦区朱家角西井街84号北门
     </div>
   </div>
 </template>

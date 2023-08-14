@@ -57,7 +57,7 @@
   .btn {
     margin: 0 auto;
     width: 297px;
-    height: 61px;
+    height: 71px;
   }
 }
 </style>

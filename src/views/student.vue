@@ -68,7 +68,7 @@ const swiperBox3HeightRadio = 272 / imgBox3Height;
 
 onMounted(() => {
   setTimeout(resizeSetHeight, 0);
-  window.addEventListener("resize", resizeSetHeight, 300);
+  window.addEventListener("resize", resizeSetHeight);
 });
 
 onUnmounted(() => {

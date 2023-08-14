@@ -1,4 +1,4 @@
-const req = require.context('./', true, /\.png$/);
+const req = require.context('./', true, /\.png|.jpg$/);
 const pngHashMap = [];
 
 req.keys().forEach((eachPng) => {

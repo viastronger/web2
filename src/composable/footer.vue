@@ -3,7 +3,7 @@
     <div class="footer">
       <div class="ewm-box">
         <img src="@/assets/images/footer/weixin_ewm.jpg" alt="" />
-        <img src="@/assets/images/footer/service_ewm.png" alt="" />
+        <img src="@/assets/images/footer/buy_ewm.png" alt="" />
         <img src="@/assets/images/footer/service_ewm.png" alt="" />
       </div>
       <img src="@/assets/images/footer/footer_bg.png" @load="footerBgLoad" alt="" />
@@ -54,7 +54,7 @@
             <div class="icon-row">
               <el-popover placement="top-start" width="200" trigger="hover">
                 <div class="popover-box">
-                  <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
+                  <!-- <img class="icon" src="@/assets/images/footer/ewm.png" alt="" /> -->
                   关注挚护帮小程序
                 </div>
                 <template #reference>
@@ -72,15 +72,15 @@
               <div class="item">
                 <el-popover placement="top-start" width="200" trigger="hover">
                   <div class="popover-box">
-                    <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
-                    关注官方微信
+                    <img class="icon" src="@/assets/images/footer/wx_gongzhonghao.jpg" alt="" />
+                    关注官方微信公众号
                   </div>
                   <template #reference>
                     <img class="icon" src="@/assets/images/footer/02.png" alt="" />
                   </template>
                 </el-popover>
               </div>
-              <div class="item">
+              <!-- <div class="item">
                 <el-popover placement="top-start" width="200" trigger="hover">
                   <div class="popover-box">
                     <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
@@ -134,7 +134,7 @@
                     <img class="icon" src="@/assets/images/footer/08.png" alt="" />
                   </template>
                 </el-popover>
-              </div>
+              </div> -->
             </div>
           </li>
         </ul>
@@ -176,7 +176,7 @@ const mapHeight = ref("222px");
 
 onMounted(() => {
   setTimeout(resizeSetHeight, 300);
-  window.addEventListener("resize", resizeSetHeight, 300);
+  window.addEventListener("resize", resizeSetHeight);
 });
 
 onUnmounted(() => {
@@ -200,11 +200,14 @@ const resizeSetHeight = debounce(() => {
 }, 300);
 
 const footerBgLoad = () => {
-  footerShow.value = true;
+  setTimeout(() => {
+    footerShow.value = true;
+  }, 500);
 };
 </script>
 <style lang="scss" scoped>
 .footer-wrap {
+  overflow: hidden;
   opacity: 0;
   &.active {
     opacity: 1;

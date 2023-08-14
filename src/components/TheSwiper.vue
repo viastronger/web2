@@ -5,15 +5,38 @@
     :pagination="pagination"
     :modules="modules"
     :navigation="swiperOptions.navigation"
+    :autoplay="swiperOptions.autoplay"
+    :loop="loop"
+    :observer="true"
+    :observeParents="true"
   >
-    <swiper-slide v-for="(item, idx) in bannerList" :key="idx">
-      <TheImage
-        ref="elImageRef"
-        class="carousel-img"
-        :src="item.url"
-        @load="imgLoadHandler"
-      ></TheImage>
-    </swiper-slide>
+    <template v-if="!rows">
+      <swiper-slide v-for="(item, idx) in bannerList" :key="idx">
+        <TheImage
+          v-scrollBot="isScrollBot"
+          ref="elImageRef"
+          class="carousel-img"
+          :src="item.url"
+          @load="imgLoadHandler"
+        ></TheImage>
+      </swiper-slide>
+    </template>
+    <template v-if="rows">
+      <swiper-slide v-for="(banner, idx) in bannerList" :key="idx">
+        <div class="wrapper">
+          <template v-for="(row, index) in banner" :key="'' + index + idx">
+            <TheImage
+              v-if="row.url"
+              ref="elImageRef"
+              class="carousel-img"
+              :src="row.url"
+              @load="imgLoadHandler"
+            ></TheImage>
+            <div v-else></div>
+          </template>
+        </div>
+      </swiper-slide>
+    </template>
     <div class="swiper-button-next swiper-button"></div>
     <div class="swiper-button-prev swiper-button"></div>
   </Swiper>
@@ -22,7 +45,7 @@
 <script setup>
 import { ref, reactive, toRefs, watch, onMounted, getCurrentInstance } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination, Navigation, EffectCoverflow } from "swiper/modules";
+import { Pagination, Navigation, EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -41,10 +64,6 @@ const props = defineProps({
     type: [String],
     default: "",
   },
-  autoplay: {
-    type: Boolean,
-    default: true,
-  },
   slidesPerView: {
     type: Number,
     default: 2.6,
@@ -57,11 +76,33 @@ const props = defineProps({
     type: [Boolean, Object],
     default: false,
   },
+  autoplay: {
+    type: [Boolean, Object],
+    default: false,
+  },
+  rows: {
+    type: Boolean,
+    default: false,
+  },
+  loop: {
+    type: Boolean,
+    default: true,
+  },
+  isScrollBot: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-const modules = [Pagination, Navigation, EffectCoverflow];
+const modules = [Pagination, Navigation, EffectCoverflow, Autoplay];
 
 const swiperOptions = reactive({
+  autoplay: {
+    delay: 3000,
+    stopOnLastSlide: false,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -84,11 +125,22 @@ const imgLoadHandler = () => {};
 .swiper-button {
   width: 36px;
   height: 36px;
-  background-color: rgba(31, 45, 61, 0.11);
+  background-color: rgba(31, 45, 61, 0.51);
   border-radius: 50%;
   &::after {
     font-size: 14px;
     color: #fff;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .el-imager,
+  > div {
+    width: 24%;
+    margin-bottom: 10px;
   }
 }
 </style>

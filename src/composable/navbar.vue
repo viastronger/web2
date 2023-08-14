@@ -11,7 +11,6 @@
           v-if="!item.submenus"
           :index="item.route"
           @click="handlerClick(item)"
-          :class="item.route === 'home' ? 'hand' : ''"
         >
           {{ item.name }}
         </el-menu-item>
@@ -24,22 +23,27 @@
           collapse-open-icon="none"
         >
           <template #title>
-            <div class="sub-title" @click="handlerClick(item)">
+            <div
+              class="sub-title"
+              :class="{ 'no-pad': route.name === 'home' }"
+              @click="handlerClick(item)"
+            >
               <template v-if="route.name === 'home'"> {{ item.name }} </template>
               <img v-else src="@/assets/images/home/home.png" alt="" />
             </div>
           </template>
           <el-menu-item
             v-for="child in item.submenus"
-            :index="`${child.carerType}`"
-            :key="child.carerType"
+            :index="child.route"
+            :key="child.route"
+            @click="handlerClick(child)"
           >
             {{ child.name }}
           </el-menu-item>
         </el-sub-menu>
       </div>
+      <img class="sign-up" v-scrollBot src="@/assets/images/header/sign_up.png" alt="" />
     </el-menu>
-    <div class="sign-up" v-scrollBot>立即报名</div>
   </div>
 </template>
 
@@ -49,7 +53,6 @@ import { useRouter, useRoute } from "vue-router";
 import api from "@/api";
 import TheImage from "@/components/TheImage.vue";
 import menus from "../config/menus";
-import { hideName, getEdu } from "@/utils";
 
 const menu = ref(null);
 const router = useRouter();
@@ -80,6 +83,10 @@ const carerMapInfo = reactive({
   },
 });
 
+watch(route, (v) => {
+  activeIndex.value = v.name;
+});
+
 const handlerClick = (item) => {
   if (item.type === "out_link") {
     activeIndex.value = "";
@@ -88,7 +95,7 @@ const handlerClick = (item) => {
     });
     return window.open(item.route, "_blank");
   }
-  router.push(item.route);
+  router.push({ name: item.route });
 };
 
 const menuOpenHandler = (index) => {
@@ -163,23 +170,15 @@ $cardWidth: 125px;
 $cardHeight: 202px;
 
 .main-container.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .el-menu-nav {
-    flex: 1;
-  }
-
   .sign-up {
-    margin-left: 40px;
-    // width: 144px;
-    // height: 38px;
-    padding: 4px 12px;
-    font-size: 22px;
-    font-family: Alibaba PuHuiTi-Regular, Alibaba PuHuiTi;
-    color: #fff;
-    background-color: #1f92d1;
-    border-radius: 4px;
+    width: 80px;
+    // margin-left: 40px;
+    // padding: 4px 12px;
+    // font-size: 22px;
+    // font-family: Alibaba PuHuiTi-Regular, Alibaba PuHuiTi;
+    // color: #fff;
+    // background-color: #1f92d1;
+    // border-radius: 4px;
   }
 }
 
@@ -224,6 +223,9 @@ $cardHeight: 202px;
     color: #fff !important;
     border-bottom: 1px solid #fff;
     &:hover {
+      background-color: #04b1f3 !important;
+    }
+    &.is-active {
       background-color: #fff !important;
       color: #47c4f4 !important;
     }
@@ -262,22 +264,12 @@ $cardHeight: 202px;
     }
   }
 
-  .hand {
-    padding: 0;
-    &.is-active {
-      border: none !important;
-    }
-  }
-  .hand-active {
-    background: url(@/assets/images/home/nav_bg.png) no-repeat center / 100% 100%;
-    &.no-pad {
-      padding: 0 30px;
-      color: white !important;
-    }
-    .el-sub-menu__title {
-      color: white !important;
-    }
-  }
+  // .hand {
+  //   padding: 0;
+  //   &.is-active {
+  //     border: none !important;
+  //   }
+  // }
 
   .el-menu-item {
     font-size: 16px;
@@ -299,12 +291,20 @@ $cardHeight: 202px;
     background-color: transparent;
   }
 
-  .el-sub-menu__title {
-    padding: 0;
-    .sub-title {
-      padding: 0 44px 0 30px;
-      font-size: 16px;
-      font-weight: 600;
+  .hand-active {
+    background: url(@/assets/images/home/nav_bg.png) no-repeat center / 100% 100%;
+
+    .el-sub-menu__title {
+      color: white !important;
+      padding: 0;
+      .sub-title {
+        padding: 10px 44px 10px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        &.no-pad {
+          padding: 0 24px 0 20px;
+        }
+      }
     }
   }
 }

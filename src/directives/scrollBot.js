@@ -2,6 +2,7 @@ import { scrollSmoothTo } from '@/utils'
 
 export default {
   mounted(el, binding) {
+    if (binding.value === false) return
     el.style.cursor = 'pointer'
     el.addEventListener('click', (e) => {
       const footerEl = document.querySelector('.footer')

@@ -1,6 +1,7 @@
 <template>
   <div class="img-placeholder">
-    <img src="@/assets/images/home/01.png" alt="" />
+    <TheSwiper :bannerList="bannerList1" :slidesPerView="1"></TheSwiper>
+    
     <img v-scrollBot src="@/assets/images/home/02.png" alt="" />
     <img v-scrollBot src="@/assets/images/home/03.png" alt="" />
     <div class="service">
@@ -19,7 +20,7 @@
       <div class="sub-title">
         学校具备一支高学历、高职称、教学经验丰富的师资队伍，专业性、针对性教学，让学员快速掌握技能用于实践。此外，学校还与各级医院、政府、机构、企业等建立了长期合作顾问关系。
       </div>
-      <TheSwiper :bannerList="bannerList2"></TheSwiper>
+      <TheSwiper :bannerList="bannerList2" :autoplay="true"></TheSwiper>
     </div>
   </div>
 </template>
@@ -34,23 +35,14 @@ import banner1 from "@/assets/images/home/banner/01.png";
 import banner2 from "@/assets/images/home/banner/02.png";
 import banner3 from "@/assets/images/home/banner/03.png";
 import banner4 from "@/assets/images/home/banner/04.png";
-import banner2_1 from "@/assets/images/home/banner2/01.png";
-import banner2_2 from "@/assets/images/home/banner2/02.png";
-import banner2_3 from "@/assets/images/home/banner2/03.png";
-import banner2_4 from "@/assets/images/home/banner2/04.png";
+import bannerList1 from "@/assets/images/home/banner1";
+import bannerList2 from "@/assets/images/home/banner2";
 
 const bannerList = ref([
   { url: banner1 },
   { url: banner2 },
   { url: banner3 },
   { url: banner4 },
-]);
-
-const bannerList2 = ref([
-  { url: banner2_1 },
-  { url: banner2_2 },
-  { url: banner2_3 },
-  { url: banner2_4 },
 ]);
 
 const router = useRouter();

@@ -1,8 +1,8 @@
 <template>
   <div class="img-placeholder">
-    <img src="@/assets/images/train/01.png" alt="" />
+    <img v-scrollBot src="@/assets/images/train/01.png" alt="" />
     <div class="main-container">
-      <TheSwiper :bannerList="bannerList"></TheSwiper>
+      <TheSwiper :bannerList="bannerList" isScrollBot></TheSwiper>
     </div>
     <img v-scrollBot src="@/assets/images/train/02.png" alt="" />
     <img src="@/assets/images/train/03.png" alt="" />
