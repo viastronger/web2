@@ -252,7 +252,7 @@ $cardHeight: 202px;
 }
 
 .el-menu-nav {
-  border: none;
+  border: none !important;
   background-color: transparent;
   > div {
     .el-sub-menu,
