@@ -36,46 +36,6 @@ const routes = [
         name: 'course',
         component: () => import(/* webpackChunkName: "about" */ '../views/course.vue'),
       },
-      {
-        path: '/course-care',
-        name: 'courseCare',
-        component: () => import(/* webpackChunkName: "about" */ '../views/course1.vue'),
-      },
-      {
-        path: '/course-medical',
-        name: 'courseMedical',
-        component: () => import(/* webpackChunkName: "about" */ '../views/course2.vue'),
-      },
-      {
-        path: '/course-old',
-        name: 'courseOld',
-        component: () => import(/* webpackChunkName: "about" */ '../views/course3.vue'),
-      },
-      {
-        path: '/course-duties',
-        name: 'courseDuties',
-        component: () => import(/* webpackChunkName: "about" */ '../views/course4.vue'),
-      },
-      {
-        path: '/course-cook',
-        name: 'courseCook',
-        component: () => import(/* webpackChunkName: "about" */ '../views/course5.vue'),
-      },
-      {
-        path: '/course-pastry',
-        name: 'coursePastry',
-        component: () => import(/* webpackChunkName: "about" */ '../views/course6.vue'),
-      },
-      {
-        path: '/course-flower',
-        name: 'courseFlower',
-        component: () => import(/* webpackChunkName: "about" */ '../views/course7.vue'),
-      },
-      {
-        path: '/course-tea',
-        name: 'courseTea',
-        component: () => import(/* webpackChunkName: "about" */ '../views/course8.vue'),
-      },
     ]
   }
 
