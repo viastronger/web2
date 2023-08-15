@@ -6,51 +6,51 @@ export default [
     submenus: [
       {
         name: '母婴护理员',
-        route: 'courseCare',
+        route: 'course',
         icon: '',
-        carerType: 1
+        id: 1
       },
       {
         name: '医疗护理员',
-        route: 'courseMedical',
+        route: 'course',
         icon: '',
-        carerType: 2
+        id: 2
       },
       {
         name: '养老护理员',
-        route: 'courseOld',
+        route: 'course',
         icon: '',
-        carerType: 3
+        id: 3
       },
       {
         name: '家务服务员',
-        route: 'courseDuties',
+        route: 'course',
         icon: '',
-        carerType: 4
+        id: 4
       },
       {
         name: '中式烹调师',
-        route: 'courseCook',
+        route: 'course',
         icon: '',
-        carerType: 5
+        id: 5
       },
       {
         name: '中式面点师',
-        route: 'coursePastry',
+        route: 'course',
         icon: '',
-        carerType: 6
+        id: 6
       },
       {
         name: '插花花艺师',
-        route: 'courseFlower',
+        route: 'course',
         icon: '',
-        carerType: 7
+        id: 7
       },
       {
         name: '茶艺师',
-        route: 'courseTea',
+        route: 'course',
         icon: '',
-        carerType: 8
+        id: 8
       }
     ]
   },

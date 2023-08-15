@@ -4,7 +4,7 @@
       <div v-for="item in menus" :key="item.route">
         <el-menu-item
           v-if="!item.submenus"
-          :index="item.route"
+          :index="`/${item.route}`"
           @click="handlerClick(item)"
         >
           {{ item.name }}
@@ -12,7 +12,7 @@
 
         <el-sub-menu
           v-else-if="item.submenus && item.submenus.length"
-          :index="item.route"
+          :index="`/${item.route}`"
           class="hand-active"
           popper-class="menu-pop"
           collapse-open-icon="none"
@@ -29,7 +29,7 @@
           </template>
           <el-menu-item
             v-for="child in item.submenus"
-            :index="child.route"
+            :index="`/${child.route}/${child.id}`"
             :key="child.route"
             @click="handlerClick(child)"
           >
@@ -51,21 +51,21 @@ import menus from "../config/menus";
 const router = useRouter();
 const route = useRoute();
 
-const activeIndex = ref(route.name);
+const activeIndex = ref(route.path);
 
 watch(route, (v) => {
-  activeIndex.value = v.name;
+  activeIndex.value = v.path;
 });
 
 const handlerClick = (item) => {
   if (item.type === "out_link") {
     activeIndex.value = "";
     nextTick(() => {
-      activeIndex.value = route.name;
+      activeIndex.value = route.path;
     });
     return window.open(item.route, "_blank");
   }
-  router.push({ name: item.route });
+  router.push({ name: item.route, params: { id: item.id } });
 };
 </script>
 
