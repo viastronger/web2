@@ -52,18 +52,22 @@
               </el-popover>
             </div>
             <div class="icon-row">
-              <el-popover placement="top-start" width="200" trigger="hover">
+              <!-- <img class="icon" src="@/assets/images/footer/ewm.png" alt="" /> -->
+              <!-- <el-popover placement="top-start" width="200" trigger="hover">
                 <div class="popover-box">
-                  <!-- <img class="icon" src="@/assets/images/footer/ewm.png" alt="" /> -->
                   关注挚护帮小程序
                 </div>
                 <template #reference>
                   <div class="icon-row">
                     <img class="icon" src="@/assets/images/footer/01.png" alt="" />
-                    挚护帮
+                    关注挚护帮小程序
                   </div>
                 </template>
-              </el-popover>
+              </el-popover> -->
+              <div class="icon-row">
+                <img class="icon" src="@/assets/images/footer/01.png" alt="" />
+                挚护帮
+              </div>
             </div>
           </li>
           <li>
@@ -72,7 +76,11 @@
               <div class="item">
                 <el-popover placement="top-start" width="200" trigger="hover">
                   <div class="popover-box">
-                    <img class="icon" src="@/assets/images/footer/wx_gongzhonghao.jpg" alt="" />
+                    <img
+                      class="icon"
+                      src="@/assets/images/footer/wx_gongzhonghao.jpg"
+                      alt=""
+                    />
                     关注官方微信公众号
                   </div>
                   <template #reference>

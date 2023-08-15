@@ -12,7 +12,7 @@
           :bannerList="bannerList"
           :autoplay="true"
           :slidesPerView="1"
-          v-scrollBot
+          isScrollBot
         ></TheSwiper>
       </div>
     </div>
