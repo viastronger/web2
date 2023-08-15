@@ -52,18 +52,6 @@
               </el-popover>
             </div>
             <div class="icon-row">
-              <!-- <img class="icon" src="@/assets/images/footer/ewm.png" alt="" /> -->
-              <!-- <el-popover placement="top-start" width="200" trigger="hover">
-                <div class="popover-box">
-                  关注挚护帮小程序
-                </div>
-                <template #reference>
-                  <div class="icon-row">
-                    <img class="icon" src="@/assets/images/footer/01.png" alt="" />
-                    关注挚护帮小程序
-                  </div>
-                </template>
-              </el-popover> -->
               <div class="icon-row">
                 <img class="icon" src="@/assets/images/footer/01.png" alt="" />
                 挚护帮
@@ -88,61 +76,12 @@
                   </template>
                 </el-popover>
               </div>
-              <!-- <div class="item">
-                <el-popover placement="top-start" width="200" trigger="hover">
-                  <div class="popover-box">
-                    <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
-                    关注官方大众点评
-                  </div>
-                  <template #reference>
-                    <img class="icon" src="@/assets/images/footer/03.png" alt="" />
-                  </template>
-                </el-popover>
-              </div>
-              <div class="item">
-                <el-popover placement="top-start" width="200" trigger="hover">
-                  <div class="popover-box">
-                    <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
-                    关注官方小红书
-                  </div>
-                  <template #reference>
-                    <img class="icon" src="@/assets/images/footer/07.png" alt="" />
-                  </template>
-                </el-popover>
-              </div>
-              <div class="item">
-                <el-popover placement="top-start" width="200" trigger="hover">
-                  <div class="popover-box">
-                    <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
-                    关注官方微博
-                  </div>
-                  <template #reference>
-                    <img class="icon" src="@/assets/images/footer/06.png" alt="" />
-                  </template>
-                </el-popover>
-              </div>
-              <div class="item">
-                <el-popover placement="top-start" width="200" trigger="hover">
-                  <div class="popover-box">
-                    <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
-                    关注官方抖音
-                  </div>
-                  <template #reference>
-                    <img class="icon" src="@/assets/images/footer/04.png" alt="" />
-                  </template>
-                </el-popover>
-              </div>
-              <div class="item">
-                <el-popover placement="top-start" width="200" trigger="hover">
-                  <div class="popover-box">
-                    <img class="icon" src="@/assets/images/footer/ewm.png" alt="" />
-                    关注官方快手
-                  </div>
-                  <template #reference>
-                    <img class="icon" src="@/assets/images/footer/08.png" alt="" />
-                  </template>
-                </el-popover>
-              </div> -->
+              <!-- 空着占位，后面可能加icon -->
+              <div class="item" style="width: 31px"></div>
+              <div class="item" style="width: 31px"></div>
+              <div class="item" style="width: 31px"></div>
+              <div class="item" style="width: 31px"></div>
+              <div class="item" style="width: 31px"></div>
             </div>
           </li>
         </ul>
