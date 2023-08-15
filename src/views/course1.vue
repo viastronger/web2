@@ -30,8 +30,6 @@ import TheSwiper from "@/components/TheSwiper.vue";
 import bannerList1 from "@/assets/images/course1/banner1";
 import bannerList2 from "@/assets/images/course1/banner2";
 
-const swiperBox1Show = ref(false);
-
 const baseWidth = 1920;
 const imgBox1Height = 1575;
 const imgBox2Height = 1224;
@@ -75,8 +73,6 @@ const resizeSetHeight = debounce(() => {
   swiperBox2Width.value = box2Width * swiperBox2WidthRadio + "px";
   swiperBox2Height.value = box2Height * swiperBox2HeightRadio + "px";
   swiperBox2Bot.value = box2Height * swiperBot2Radio + "px";
-
-  swiperBox1Show.value = true;
 }, 300);
 </script>
 

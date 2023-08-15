@@ -202,7 +202,7 @@ const resizeSetHeight = debounce(() => {
 const footerBgLoad = () => {
   setTimeout(() => {
     footerShow.value = true;
-  }, 500);
+  }, 800);
 };
 </script>
 <style lang="scss" scoped>

@@ -1,0 +1,13 @@
+.banner-box {
+  overflow: hidden;
+  position: relative;
+
+  .swiper-box {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+
