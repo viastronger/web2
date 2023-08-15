@@ -172,6 +172,8 @@ $cardHeight: 202px;
 .main-container.nav {
   .sign-up {
     width: 80px;
+    margin-top: -6px;
+    margin-left: 40px;
     // margin-left: 40px;
     // padding: 4px 12px;
     // font-size: 22px;

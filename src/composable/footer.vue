@@ -160,7 +160,7 @@ const ewmBoxBotRadio = 135 / imgHeight;
 
 const mapTopRadio = 287 / imgHeight;
 const mapRightRadio = 213 / imgWidth;
-const mapWidthRadio = 734 / imgWidth;
+const mapWidthRadio = 675 / imgWidth;
 const mapHeightRadio = 222 / imgHeight;
 
 const footerHeight = ref(`${imgHeight}px`);
@@ -171,7 +171,7 @@ const ewmBoxBot = ref("135px");
 
 const mapTop = ref("287px");
 const mapRight = ref("213px");
-const mapWidth = ref("734px");
+const mapWidth = ref("675px");
 const mapHeight = ref("222px");
 
 onMounted(() => {

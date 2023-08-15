@@ -3,7 +3,7 @@
     <div class="banner-box banner-box1">
       <img v-scrollBot src="@/assets/images/student/01.png" alt="" />
       <div class="swiper-box swiper-box1" :class="{ active: swiperBox1Show }">
-        <TheSwiper :bannerList="bannerList1" :slidesPerView="3"></TheSwiper>
+        <TheSwiper :bannerList="bannerList1" :slidesPerView="3" :loop="false"></TheSwiper>
       </div>
     </div>
 

@@ -7,10 +7,10 @@
       </div>
       <div class="sub-title">学习，让自己更优秀</div>
       <div class="img-box main-container">
-        <a href="http://www.rsj.sh.gov.cn/xjd/index600.jsp">
+        <a href="http://www.rsj.sh.gov.cn/xjd/index600.jsp" target="_blank">
           <img src="@/assets/images/query/01.png" alt="" />
         </a>
-        <a href="http://na.mofyi.com/na/login/search.html">
+        <a href="http://na.mofyi.com/na/login/search.html" target="_blank">
           <img src="@/assets/images/query/02.png" alt="" />
         </a>
         <img v-scrollBot src="@/assets/images/query/03.png" alt="" />
@@ -55,7 +55,7 @@
     }
   }
   .btn {
-    margin: 0 auto;
+    margin: 0 auto 70px;
     width: 297px;
     height: 71px;
   }

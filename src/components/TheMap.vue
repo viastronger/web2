@@ -11,19 +11,20 @@
 <script setup>
 import { onMounted } from "vue";
 
-let map = null
+let map = null;
+const centerCoor = [31.113334, 121.054681];
 
 onMounted(() => {
   initMap();
 });
 
-const mapReset = ()=>{
-  map && map.setCenter(new TMap.LatLng(31.23224, 121.393026))
-}
+const mapReset = () => {
+  map && map.setCenter(new TMap.LatLng(...centerCoor));
+};
 
 function initMap(params) {
   //定义地图中心点坐标
-  var center = new TMap.LatLng(31.23224, 121.393026);
+  var center = new TMap.LatLng(...centerCoor);
   //定义map变量，调用 TMap.Map() 构造函数创建地图
   map = new TMap.Map(document.getElementById("map"), {
     center: center, //设置地图中心点坐标
@@ -90,5 +91,4 @@ function initMap(params) {
     display: none;
   }
 }
-
 </style>
