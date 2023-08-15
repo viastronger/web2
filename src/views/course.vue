@@ -28,7 +28,7 @@ import { ref, reactive, watch } from "vue";
 import TheSwiper from "@/components/TheSwiper.vue";
 import banner from "@/assets/images/course";
 import useResizeSetSwiper from "@/hooks";
-import { useRoute } from "vue-router";
+import { useRoute, onBeforeRouteUpdate } from "vue-router";
 
 const route = useRoute();
 const baseWidth = 1920;
@@ -39,8 +39,7 @@ const bannerList1 = ref([]);
 const bannerList2 = ref([]);
 const bgImg = ref({});
 
-const test = (id) => {
-  console.log(id);
+const getImg = (id) => {
   bannerList1.value = banner[`course${id}`][`course${id}Banner1`];
   bannerList2.value = banner[`course${id}`][`course${id}Banner2`];
   bgImg.value = {
@@ -50,15 +49,11 @@ const test = (id) => {
   };
 };
 
-test(route.params.id);
+getImg(route.params.id);
 
-watch(
-  () => route,
-  () => {
-    test(route.params.id);
-  },
-  { deep: true }
-);
+onBeforeRouteUpdate((to, from) => {
+  getImg(to.params.id);
+});
 
 const swiperOption = reactive({
   swiper1: {
