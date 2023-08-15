@@ -34,7 +34,6 @@ import useResizeSetSwiper from "@/hooks";
 
 import TheSwiper from "@/components/TheSwiper.vue";
 import TheImage from "@/components/TheImage.vue";
-import TheBanner from "@/components/TheBanner.vue";
 import bannerList1 from "@/assets/images/about/banner1";
 import bannerList from "@/assets/images/about/banner2";
 
