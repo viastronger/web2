@@ -1,11 +1,6 @@
 <template>
   <div class="main-container nav">
-    <el-menu
-      ref="menu"
-      :default-active="activeIndex"
-      class="el-menu-nav"
-      mode="horizontal"
-    >
+    <el-menu :default-active="activeIndex" class="el-menu-nav" mode="horizontal">
       <div v-for="item in menus" :key="item.route">
         <el-menu-item
           v-if="!item.submenus"
@@ -48,40 +43,15 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, inject, nextTick } from "vue";
+import { ref, watch, nextTick } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import api from "@/api";
 import TheImage from "@/components/TheImage.vue";
 import menus from "../config/menus";
 
-const menu = ref(null);
 const router = useRouter();
 const route = useRoute();
-const reload = inject("reload");
 
 const activeIndex = ref(route.name);
-
-const reloadKey = ref(String(+new Date()));
-const curCarerType = ref(1);
-
-const getQuery = (type) => {
-  return {
-    pageIndex: 0,
-    pageSize: 1000,
-    type,
-  };
-};
-
-const carerMapInfo = reactive({
-  1: {
-    list: [],
-    query: getQuery(1),
-  },
-  2: {
-    list: [],
-    query: getQuery(2),
-  },
-});
 
 watch(route, (v) => {
   activeIndex.value = v.name;
@@ -97,72 +67,6 @@ const handlerClick = (item) => {
   }
   router.push({ name: item.route });
 };
-
-const menuOpenHandler = (index) => {
-  const findItem = findTargetMenu(menus, index);
-  curCarerType.value = findItem.carerType;
-  if (findItem.carerType && !carerMapInfo[findItem.carerType].list.length) {
-    carerMapInfo[findItem.carerType].query.type = findItem.carerType;
-    getTypeBabyCarerPageList();
-  }
-};
-
-const getTypeBabyCarerPageList = async () => {
-  const { data } = await api.getTypeBabyCarerPageList(
-    carerMapInfo[curCarerType.value].query
-  );
-  carerMapInfo[curCarerType.value].list = data.data;
-};
-
-const findTargetMenu = (arr, index) => {
-  let target = null;
-  arr.forEach((l) => {
-    if (target) return;
-    if (l.name === index || l.route === index) {
-      target = l;
-    } else if (l.submenus && l.submenus.length) {
-      target = findTargetMenu(l.submenus, index);
-    }
-  });
-  return target;
-};
-
-const goDetail = (item) => {
-  router.push({
-    name: "detail",
-    query: {
-      id: item.babyCarerId,
-    },
-  });
-  menu.value.close("home");
-};
-
-const goSearch = (item) => {
-  const flag = route.name === "search";
-  router
-    .push({
-      name: "search",
-      query: {
-        carerType: item.carerType,
-      },
-    })
-    .then(() => {
-      if (flag) reload();
-    });
-  menu.value.close("home");
-};
-
-const getCarouselItemIndex = (length) => {
-  return Math.ceil(length / 12);
-};
-
-const getCardIndex = (arr, idx) => {
-  return arr.slice(idx * 12, (idx + 1) * 12);
-};
-
-const getCarouselHeight = (length) => {
-  return Number(length) > 12 ? "642px" : Math.ceil(length / 4) * 202 + 36 + "px";
-};
 </script>
 
 <style lang="scss">
@@ -174,13 +78,6 @@ $cardHeight: 202px;
     width: 80px;
     margin-top: -6px;
     margin-left: 40px;
-    // margin-left: 40px;
-    // padding: 4px 12px;
-    // font-size: 22px;
-    // font-family: Alibaba PuHuiTi-Regular, Alibaba PuHuiTi;
-    // color: #fff;
-    // background-color: #1f92d1;
-    // border-radius: 4px;
   }
 }
 
@@ -265,13 +162,6 @@ $cardHeight: 202px;
       }
     }
   }
-
-  // .hand {
-  //   padding: 0;
-  //   &.is-active {
-  //     border: none !important;
-  //   }
-  // }
 
   .el-menu-item {
     font-size: 16px;

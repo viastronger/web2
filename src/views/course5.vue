@@ -24,56 +24,36 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, onUnmounted } from "vue";
-import { debounce } from "lodash-es";
+import { ref, reactive } from "vue";
 import TheSwiper from "@/components/TheSwiper.vue";
 import bannerList1 from "@/assets/images/course5/banner1";
 import bannerList2 from "@/assets/images/course5/banner2";
+import useResizeSetSwiper from "@/hooks";
 
 const baseWidth = 1920;
 const imgBox1Height = 1575;
 const imgBox2Height = 1224;
 
-const swiperBox1Width = ref("1680px");
-const swiperBox1Height = ref("272px");
-const swiperBox1Bot = ref("197px");
-const swiperBox1WidthRadio = 1680 / baseWidth;
-const swiperBox1HeightRadio = 272 / imgBox1Height;
-const swiperBot1Radio = 197 / imgBox1Height;
-
-const swiperBox2Width = ref("1765px");
-const swiperBox2Height = ref("755px");
-const swiperBox2Bot = ref("147px");
-const swiperBox2WidthRadio = 1765 / baseWidth;
-const swiperBox2HeightRadio = 755 / imgBox2Height;
-const swiperBot2Radio = 147 / imgBox2Height;
-
-onMounted(() => {
-  setTimeout(resizeSetHeight, 0);
-  window.addEventListener("resize", resizeSetHeight);
+const swiperOption = reactive({
+  swiper1: {
+    index: 1,
+    x: [{ prop: "width", radio: 1680 / baseWidth }],
+    y: [
+      { prop: "height", radio: 272 / imgBox1Height },
+      { prop: "bottom", radio: 197 / imgBox1Height },
+    ],
+  },
+  swiper2: {
+    index: 2,
+    x: [{ prop: "width", radio: 1765 / baseWidth }],
+    y: [
+      { prop: "height", radio: 755 / imgBox2Height },
+      { prop: "bottom", radio: 147 / imgBox2Height },
+    ],
+  },
 });
 
-onUnmounted(() => {
-  window.removeEventListener("resize", resizeSetHeight);
-});
-
-const resizeSetHeight = debounce(() => {
-  const { clientWidth: box1Width, clientHeight: box1Height } = document.querySelector(
-    ".banner-box1"
-  );
-
-  const { clientWidth: box2Width, clientHeight: box2Height } = document.querySelector(
-    ".banner-box2"
-  );
-
-  swiperBox1Width.value = box1Width * swiperBox1WidthRadio + "px";
-  swiperBox1Height.value = box1Height * swiperBox1HeightRadio + "px";
-  swiperBox1Bot.value = box1Height * swiperBot1Radio + "px";
-
-  swiperBox2Width.value = box2Width * swiperBox2WidthRadio + "px";
-  swiperBox2Height.value = box2Height * swiperBox2HeightRadio + "px";
-  swiperBox2Bot.value = box2Height * swiperBot2Radio + "px";
-}, 300);
+useResizeSetSwiper(swiperOption);
 </script>
 
 <style lang="scss" scoped>
@@ -88,14 +68,14 @@ const resizeSetHeight = debounce(() => {
 }
 
 .swiper-box1 {
-  bottom: v-bind(swiperBox1Bot);
-  width: v-bind(swiperBox1Width);
-  height: v-bind(swiperBox1Height);
+  bottom: v-bind("swiperOption.swiper1.bottom");
+  width: v-bind("swiperOption.swiper1.width");
+  height: v-bind("swiperOption.swiper1.height");
 }
 
 .swiper-box2 {
-  bottom: v-bind(swiperBox2Bot);
-  width: v-bind(swiperBox2Width);
-  height: v-bind(swiperBox2Height);
+  bottom: v-bind("swiperOption.swiper2.bottom");
+  width: v-bind("swiperOption.swiper2.width");
+  height: v-bind("swiperOption.swiper2.height");
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="main-body">
     <el-config-provider size="small">
-      <el-affix class="affix" @change="affixChange" z-index="99999">
+      <el-affix class="affix" @change="affixChange" z-index="2003">
         <div class="nav-head" :class="{ active: affixStatu }">
           <Header></Header>
 

@@ -29,8 +29,9 @@
   </div>
 </template>
 <script setup>
-import { ref, reactive, toRefs, watch, onMounted, onUnmounted } from "vue";
-import { debounce } from "lodash-es";
+import { ref, reactive } from "vue";
+import useResizeSetSwiper from "@/hooks";
+
 import TheSwiper from "@/components/TheSwiper.vue";
 import TheImage from "@/components/TheImage.vue";
 import TheBanner from "@/components/TheBanner.vue";
@@ -43,56 +44,35 @@ const baseWidth = 1920;
 const imgBox1Height = 830;
 const imgBox2Height = 1295;
 
-const bannerBox1Right = ref("120px");
-const bannerBox1Bot = ref("65px");
-const bannerBox1Width = ref("672px");
-const bannerBox1Height = ref("514px");
-const bannerBox1RightRadio = 120 / baseWidth;
-const bannerBox1BotRadio = 65 / imgBox1Height;
-const bannerBox1WidthRadio = 672 / baseWidth;
-const bannerBox1HeightRadio = 514 / imgBox1Height;
-
-const bannerBox2Bot = ref("107px");
-const bannerBox2Width = ref("1690px");
-const bannerBox2Height = ref("888px");
-const bannerBox2BotRadio = 107 / imgBox2Height;
-const bannerBox2WidthRadio = 1690 / baseWidth;
-const bannerBox2HeightRadio = 888 / imgBox2Height;
-
 const previewDiv = ref(null);
 const initialIndex = ref(0);
 const previewBanner = ref([]);
 
 const showBanner = ref(false);
-onMounted(() => {
-  setTimeout(resizeSetHeight, 300);
-  window.addEventListener("resize", resizeSetHeight);
+
+const swiperOption = reactive({
+  swiper1: {
+    index: 1,
+    x: [
+      { prop: "width", radio: 672 / baseWidth },
+      { prop: "right", radio: 120 / baseWidth },
+    ],
+    y: [
+      { prop: "height", radio: 514 / imgBox1Height },
+      { prop: "bottom", radio: 65 / imgBox1Height },
+    ],
+  },
+  swiper2: {
+    index: 2,
+    x: [{ prop: "width", radio: 1690 / baseWidth }],
+    y: [
+      { prop: "height", radio: 888 / imgBox2Height },
+      { prop: "bottom", radio: 107 / imgBox2Height },
+    ],
+  },
 });
 
-onUnmounted(() => {
-  window.removeEventListener("resize", resizeSetHeight);
-});
-
-const resizeSetHeight = debounce(() => {
-  const { clientWidth: box1Width, clientHeight: box1Height } = document.querySelector(
-    ".banner-box1"
-  );
-
-  const { clientWidth: box2Width, clientHeight: box2Height } = document.querySelector(
-    ".banner-box2"
-  );
-
-  bannerBox1Right.value = box1Width * bannerBox1RightRadio + "px";
-  bannerBox1Bot.value = box1Height * bannerBox1BotRadio + "px";
-  bannerBox1Width.value = box1Width * bannerBox1WidthRadio + "px";
-  bannerBox1Height.value = box1Height * bannerBox1HeightRadio + "px";
-
-  bannerBox2Bot.value = box2Height * bannerBox2BotRadio + "px";
-  bannerBox2Width.value = box2Width * bannerBox2WidthRadio + "px";
-  bannerBox2Height.value = box2Height * bannerBox2HeightRadio + "px";
-
-  showBanner.value = true;
-}, 300);
+useResizeSetSwiper(swiperOption);
 
 const carouselItemClick = (idx) => {
   initialIndex.value = idx;
@@ -104,25 +84,20 @@ const carouselItemClick = (idx) => {
   position: relative;
   .swiper-box {
     position: absolute;
-    opacity: 0;
-    transition: opacity 0.5;
-    &.active {
-      opacity: 1;
-    }
   }
   .swiper-box1 {
-    right: v-bind(bannerBox1Right);
-    bottom: v-bind(bannerBox1Bot);
-    width: v-bind(bannerBox1Width);
-    height: v-bind(bannerBox1Height);
+    right: v-bind("swiperOption.swiper1.right");
+    bottom: v-bind("swiperOption.swiper1.bottom");
+    width: v-bind("swiperOption.swiper1.width");
+    height: v-bind("swiperOption.swiper1.height");
   }
 
   .swiper-box2 {
-    bottom: v-bind(bannerBox2Bot);
-    left: 50%;
     transform: translateX(-50%);
-    width: v-bind(bannerBox2Width);
-    height: v-bind(bannerBox2Height);
+    left: 50%;
+    bottom: v-bind("swiperOption.swiper2.bottom");
+    width: v-bind("swiperOption.swiper2.width");
+    height: v-bind("swiperOption.swiper2.height");
   }
 }
 .preview-div {

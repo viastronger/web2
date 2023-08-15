@@ -10,7 +10,7 @@ export const scrollSmoothTo = (el, position) => {
   const step = () => {
     const distance = position - scrollTop
     scrollTop = scrollTop + distance / 10
-    if (Math.abs(distance) < 1) {
+    if (Math.abs(distance) < 3) {
       el.scrollTop = scrollTop + Math.ceil(distance)
     } else {
       el.scrollTop = scrollTop
