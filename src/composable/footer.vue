@@ -4,7 +4,7 @@
       <div class="ewm-box">
         <img src="@/assets/images/footer/weixin_ewm.jpg" alt="" />
         <img src="@/assets/images/footer/buy_ewm.png" alt="" />
-        <img src="@/assets/images/footer/service_ewm.png" alt="" />
+        <img src="@/assets/images/footer/weixin_ewm.jpg" alt="" />
       </div>
       <img src="@/assets/images/footer/footer_bg.png" @load="footerBgLoad" alt="" />
       <TheMap class="map"></TheMap>
@@ -31,9 +31,9 @@
         <ul>
           <li>
             <div class="title">相关网站</div>
-            <div class="link">颐挚科技</div>
+            <!-- <div class="link">颐挚科技</div> -->
             <div class="link">颐挚母婴</div>
-            <div class="link">珅昕陪护</div>
+            <!-- <div class="link">珅昕陪护</div> -->
           </li>
           <li>
             <div class="title">小程序</div>
