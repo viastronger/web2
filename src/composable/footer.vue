@@ -32,7 +32,9 @@
           <li>
             <div class="title">相关网站</div>
             <!-- <div class="link">颐挚科技</div> -->
-            <div class="link">颐挚母婴</div>
+            <div class="link">
+              <a href="https://mother-health.yilife.cn" target="_blank">颐挚母婴 </a>
+            </div>
             <!-- <div class="link">珅昕陪护</div> -->
           </li>
           <li>
