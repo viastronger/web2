@@ -4,7 +4,7 @@ const { VUE_APP_BASE_URL, NODE_ENV } = process.env
 const baseApi = '/organization-admin'
 
 const request = axios.create({
-  baseURL: NODE_ENV !== "production" ? `${VUE_APP_BASE_URL}${baseApi}` : baseApi,
+  baseURL: NODE_ENV === "development" ? baseApi : `${VUE_APP_BASE_URL}${baseApi}`,
   timeout: '5000'
 })
 
