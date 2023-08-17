@@ -256,6 +256,9 @@ const footerBgLoad = () => {
 
         .link {
           color: #d3d4d5;
+          a {
+            color: #d3d4d5;
+          }
           & + .link {
             margin-top: 8px;
           }
