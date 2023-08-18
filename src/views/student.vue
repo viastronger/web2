@@ -1,5 +1,5 @@
 <template>
-  <div class="img-placeholder">
+  <section class="img-placeholder">
     <div class="banner-box banner-box1">
       <img v-scrollBot src="@/assets/images/student/01.png" alt="" />
       <div class="swiper-box swiper-box1">
@@ -25,7 +25,7 @@
       </div>
     </div>
     <img v-scrollBot src="@/assets/images/student/04.png" alt="" />
-  </div>
+  </section>
 </template>
 
 <script setup>

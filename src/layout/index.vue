@@ -1,5 +1,5 @@
 <template>
-  <div class="main-body">
+  <main class="main-body">
     <el-config-provider size="small">
       <el-affix class="affix" @change="affixChange" z-index="2003">
         <div class="nav-head" :class="{ active: affixStatu }">
@@ -13,7 +13,7 @@
 
       <Footer></Footer>
     </el-config-provider>
-  </div>
+  </main>
 </template>
 
 <script setup>

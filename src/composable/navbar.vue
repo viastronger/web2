@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container nav">
+  <nav class="main-container nav">
     <el-menu :default-active="activeIndex" class="el-menu-nav" mode="horizontal">
       <div v-for="item in menus" :key="item.route">
         <el-menu-item
@@ -39,7 +39,7 @@
       </div>
       <img class="sign-up" v-scrollBot src="@/assets/images/header/sign_up.png" alt="" />
     </el-menu>
-  </div>
+  </nav>
 </template>
 
 <script setup>

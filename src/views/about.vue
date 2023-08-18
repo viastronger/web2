@@ -1,5 +1,5 @@
 <template>
-  <div class="img-placeholder">
+  <section class="img-placeholder">
     <div class="banner-box banner-box1">
       <img v-scrollBot src="@/assets/images/about/01.png" alt="" />
       <div class="swiper-box swiper-box1" :class="{ active: showBanner }">
@@ -26,7 +26,7 @@
       :previewlist="previewBanner"
       :initialIndex="initialIndex"
     ></TheImage>
-  </div>
+  </section>
 </template>
 <script setup>
 import { ref, reactive } from "vue";

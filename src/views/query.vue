@@ -1,5 +1,5 @@
 <template>
-  <div class="img-placeholder">
+  <section class="img-placeholder">
     <div class="banner-box banner-box1">
       <img v-scrollBot src="@/assets/images/query/06.png" alt="" />
 
@@ -17,7 +17,7 @@
     </div>
 
     <img v-scrollBot src="@/assets/images/query/04.png" alt="" />
-  </div>
+  </section>
 </template>
 <script setup>
 import { reactive } from "vue";

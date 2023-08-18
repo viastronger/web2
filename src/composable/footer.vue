@@ -1,6 +1,6 @@
 <template>
-  <div class="footer-wrap" :class="{ active: footerShow }">
-    <div class="footer">
+  <footer class="footer-wrap" :class="{ active: footerShow }">
+    <section class="footer">
       <div class="ewm-box">
         <img src="@/assets/images/footer/weixin_ewm.jpg" alt="" />
         <img src="@/assets/images/footer/buy_ewm.png" alt="" />
@@ -8,8 +8,9 @@
       </div>
       <img src="@/assets/images/footer/footer_bg.png" @load="footerBgLoad" alt="" />
       <TheMap class="map"></TheMap>
-    </div>
-    <div class="bot-link">
+    </section>
+
+    <section class="bot-link">
       <div class="left">
         <img src="@/assets/images/logo/logo_dark.png" alt="" />
         <div class="copyright">Copyright ◎2023 All Rights Reserved</div>
@@ -88,8 +89,8 @@
           </li>
         </ul>
       </div>
-    </div>
-  </div>
+    </section>
+  </footer>
 </template>
 
 <script setup>

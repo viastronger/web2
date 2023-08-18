@@ -1,38 +1,16 @@
 <template>
-  <div class="main-container">
+  <header class="main-container">
     <div class="logo" @click="router.push('home')">
       <img src="@/assets/images/logo/logo_light.png" alt="" />
     </div>
 
     <div class="right">
-      <!-- <div class="search-box">
-        <el-dropdown popper-class="person-type">
-          <el-button type="primary" color="#47c4f4" round>
-            {{ searchNameType === 1 ? "月嫂姓名" : "月嫂等级" }}
-            <el-icon style="margin-left: 5px">
-              <ArrowDown></ArrowDown>
-            </el-icon>
-          </el-button>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item @click="changeType(1)">
-                <div class="dropdown-item">月嫂姓名</div>
-              </el-dropdown-item>
-              <el-dropdown-item @click="changeType(2)">
-                <div class="dropdown-item">月嫂等级</div>
-              </el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
-        <input type="text" v-model="keyword" @keyup.enter="search" />
-        <img @click="search" src="@/assets/images/home/search_icon.png" alt="" />
-      </div> -->
       <div class="phone">
         <img src="@/assets/images/header/phone.png" alt="" />
         {{ contactNumber }}
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup>

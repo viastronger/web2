@@ -1,5 +1,5 @@
 <template>
-  <div class="img-placeholder">
+  <section class="img-placeholder">
     <TheSwiper :bannerList="bannerList1" :slidesPerView="1"></TheSwiper>
 
     <img v-scrollBot src="@/assets/images/home/01.png" alt="" />
@@ -23,7 +23,7 @@
         <TheSwiper :bannerList="bannerList2" :autoplay="true" :loop="false"></TheSwiper>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
